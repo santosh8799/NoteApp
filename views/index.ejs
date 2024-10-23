@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+  <main class="w-screen h-screen">
+    <nav class="bg-gray-300 text-blue-500 mb-4 w-screen flex justify-between items-center"><h1 class="text-3xl p-4 font-bold">Note App</h1>
+      <a href="/new">
+        <button class="bg-blue-500 text-white p-2 mr-4 text-xl rounded-md font-bold hover:bg-blue-700">
+            Create Add Note
+        </button>
+    </a>
+  </nav>
+    
+
+    <div class="notes flex flex-wrap pl-[70px] pr-10 items-center">
+     
+      <% files.forEach(file => { %>
+          <div class="note bg-gray-300 p-4 m-6 rounded-md shadow-md w-[300px]">
+
+            <a href="/notes/<%= file %>">
+              <h1 class="text-2xl font-bold"><%= file %></h1>
+             </a>
+
+              <p class="text-gray-700"><%= new Date().toLocaleDateString() %></p>
+
+
+              <div class="flex justify-between">
+                <a href="/edit/<%= file %>">
+                  <h2 class="bg-blue-500 text-white p-2 mt-2 w-[100px] text-center text-xl rounded-md hover:bg-blue-700">
+                      Edit
+                  </h2>
+                </a>
+  
+                <a href="/delete/<%= file %>">
+                  <h2 class="bg-white text-white p-2 mt-2 w-[100px] text-center text-xl rounded-md hover:bg-blue-300">
+                    <i class="ri-delete-bin-line text-2xl font-bold text-red-500"></i>
+                  </h2>
+                </a>
+  
+              </div>
+          </div>
+      <% }) %>
+  
+    
+    </div>
+
+  </main>
+   
+</body>
+</html>
